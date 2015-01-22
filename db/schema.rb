@@ -11,11 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122053652) do
+ActiveRecord::Schema.define(version: 20150122060825) do
 
   create_table "progress_logs", force: true do |t|
     t.text     "message"
     t.string   "mood"
+    t.integer  "todont_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "success_days", force: true do |t|
     t.integer  "todont_id"
     t.datetime "created_at"
     t.datetime "updated_at"
