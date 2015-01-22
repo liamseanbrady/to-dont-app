@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122063215) do
+ActiveRecord::Schema.define(version: 20150122064028) do
 
   create_table "memberships", force: true do |t|
     t.integer  "user_id"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20150122063215) do
 
   create_table "success_days", force: true do |t|
     t.integer  "todont_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "support_groups", force: true do |t|
+    t.integer  "moderator"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
