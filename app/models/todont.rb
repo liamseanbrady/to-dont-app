@@ -3,5 +3,5 @@ class Todont < ActiveRecord::Base
   has_many :progress_logs
 
   validates :body, length: {minimum: 3, maximum: 60}
-  validates :visibility, inclusion: { in %w(private, public) }
+  validates :visibility, inclusion: { in: %w(private, public) }
 end
