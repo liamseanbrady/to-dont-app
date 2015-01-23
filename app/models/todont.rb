@@ -4,5 +4,5 @@ class Todont < ActiveRecord::Base
   has_many :success_days
 
   validates :body, length: {minimum: 3, maximum: 60}
-  validates :visibility, inclusion: { in: %w(private, public) }
+  validates :visibility, inclusion: { in: %w(private public) }
 end
