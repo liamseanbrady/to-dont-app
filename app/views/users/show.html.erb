@@ -1,0 +1,25 @@
+<h4><%= @user.username %>'s Profile</h4>
+
+<h4>Todon'ts</h4>
+<ul>
+  <% @user.todonts.each do |todont| %>
+    <li><%= todont.body %></li>
+  <% end %>
+</ul>
+
+<h4>Meetups Scheduled</h4>
+<ul>
+  <% @user.meetups_scheduled.each do |meetup| %>
+    <li><%= meetup.title %></li>
+    <li><%= meetup.description %></li>
+    <li><%= meetup.location %></li>
+    <li><%= meetup.event_date %></li>
+  <% end %>
+</ul>
+
+<h4>Support Groups</h4>
+<ul>
+  <% @user.support_groups.each do |support_group| %>
+    <li><%= support_group.name %></li>
+  <% end %>
+</ul>
