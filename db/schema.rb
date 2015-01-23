@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123040129) do
+ActiveRecord::Schema.define(version: 20150123065930) do
 
   create_table "meetups", force: true do |t|
     t.string   "title"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20150123040129) do
     t.datetime "updated_at"
     t.integer  "duration",     default: 1
     t.text     "description"
+    t.string   "slug"
   end
 
   create_table "memberships", force: true do |t|
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150123040129) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   create_table "todonts", force: true do |t|
@@ -59,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150123040129) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   create_table "users", force: true do |t|
@@ -67,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150123040129) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
+    t.string   "slug"
   end
 
 end
