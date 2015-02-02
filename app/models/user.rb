@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   include Gravatarable
   include Sluggable
 
+  attr_accessor :password_confirm
+
   has_secure_password validations: false
 
   has_many :todonts
@@ -18,10 +20,17 @@ class User < ActiveRecord::Base
   validates :username, length: {minumum: 3, maximum: 20}, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password, length: {minimum: 8, maximum: 30}, on: :create
+  validate :password_confirm_must_match_password
 
   gravatar_column :email
   sluggable_column :username
 
   before_save :generate_slug!
+
+  def password_confirm_must_match_password
+    if password != password_confirm
+      errors.add(:password, 'confirmation does not match password.')
+    end
+  end
 end
 
