@@ -33,7 +33,7 @@ module Sluggable
       str = str.strip
       str.gsub(/\s*^[a-zA-Z0-9]\s*/, '-')
       str.gsub(/-+/, '-')
-      str.downcase
+      str = str.downcase
       str.slice(0...12)
     end
 
