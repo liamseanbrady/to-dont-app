@@ -1,0 +1,25 @@
+<h4>Register</h4>
+
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username, placeholder: 'Username' %>
+  <br/>
+  <%= f.label :email %>
+  <%= f.text_field :email, placeholder: 'Email address' %>
+  <br/>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br/>
+  <%= label_tag :password_confirm %>
+  <input name="user[password_confirm]" type="password">
+  <br/>
+  <%= f.submit  %>
+<% end %>
