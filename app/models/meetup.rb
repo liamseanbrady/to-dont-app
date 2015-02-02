@@ -1,4 +1,6 @@
 class Meetup < ActiveRecord::Base
+  include Sluggable
+
   belongs_to :organizer, class_name: 'User'
 
   has_many :attendee_memberships, as: :joinable, class_name: "Membership"
@@ -9,4 +11,6 @@ class Meetup < ActiveRecord::Base
   validates :duration, inclusion: { in: [1, 2, 3, 4, 5, 6, 7] }
   validates :location, length: { minimum: 3, maximum: 60 }
   validates :event_date, presence: true
+
+  sluggable_column :title
 end
