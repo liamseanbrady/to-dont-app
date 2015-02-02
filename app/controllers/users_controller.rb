@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def index
-    binding.pry
     @users = User.all
   end
 
@@ -14,7 +13,6 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = 'You successfully registered!'
       redirect_to users_path
-      binding.pry
     else
       render :new
     end
