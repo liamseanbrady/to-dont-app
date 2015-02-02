@@ -1,0 +1,5 @@
+<% if flash.keys.any? %>
+  <% flash.each do |key, message| %>
+    <p class=<%= key == 'notice' ? 'success' : 'danger' %> ><%= message %><p>
+  <% end %>
+<% end %>
