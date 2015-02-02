@@ -8,5 +8,5 @@ class Todont < ActiveRecord::Base
   validates :body, length: {minimum: 3, maximum: 60}
   validates :visibility, inclusion: { in: %w(private public) }
 
-  slugabble_column :body
+  sluggable_column :body
 end
