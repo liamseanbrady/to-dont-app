@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Gravatarable
+
   has_secure_password validations: false
 
   has_many :todonts
@@ -13,7 +15,10 @@ class User < ActiveRecord::Base
   has_many :organized_meetups, foreign_key: 'organizer_id', class_name: 'Meetup'
 
   validates :username, length: {minumum: 3, maximum: 20}, uniqueness: true
+  validates :email, presence: true, uniqueness: true
   validates :password, length: {minimum: 8, maximum: 30}, on: :create
+
+  gravatar_column :email
 
   before_save :generate_slug!
 
