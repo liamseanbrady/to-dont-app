@@ -5,6 +5,14 @@
   <%= f.label :body %>
   <%= f.text_field :body %>
   <br/>
+  <br/>
+  <%= f.label :visibility %>
+  <br/>
+  <label>Private</label>
+  <input type="radio" name="todont[visibility]" value="private" checked=<%= 'true' if @todont.visibility == 'private' %> >
+  <label>Public</label>
+  <input type="radio" name="todont[visibility]" value="public" checked=<%= 'true' if @todont.visibility == 'public' %> >
+  <br/>
   <%= f.submit "Create Todon't" %>
 <% end %>
 
