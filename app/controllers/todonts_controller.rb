@@ -19,7 +19,7 @@ class TodontsController < ApplicationController
   def show
     @todont = Todont.find_by(slug: params[:id])
     @progress_log = ProgressLog.new
-    @progress_logs = current_user.progress_logs
+    @progress_logs = @todont.progress_logs
   end
 
   def progress_log
@@ -37,7 +37,7 @@ class TodontsController < ApplicationController
   private
 
   def todont_params
-    params.require(:todont).permit(:body)
+    params.require(:todont).permit(:body, :visibility)
   end
 
   def progress_log_params
