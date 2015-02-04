@@ -18,5 +18,6 @@ ToDontApp::Application.routes.draw do
   delete '/users/:id', to: 'users#destroy'
 
   get '/users/:id/todonts', to: 'todonts#index', as: 'user_todonts'
-  get '/users/:id/todonts/:id', to: 'todonts#show', as: 'user_todont'
+  post '/users/:id/todonts', to: 'todonts#create'
+  get '/users/:user/todonts/:id', to: 'todonts#show', as: 'user_todont'
 end
