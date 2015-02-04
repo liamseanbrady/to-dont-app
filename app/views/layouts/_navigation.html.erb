@@ -2,7 +2,7 @@
   <% if logged_in? %>
     <li>Hi, <%= current_user.username %></li>
     <li><%= link_to "Your Profile", user_path(current_user) %></li>
-    <li><%= link_to "Todont's", todonts_path %></li>
+    <li><%= link_to "Todont's", user_todonts_path(current_user) %></li>
     <li><%= link_to 'Log out', logout_path %></li>
   <% else %>
     <%= link_to 'Log in', login_path %>
