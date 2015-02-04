@@ -1,1 +1,8 @@
 <h4><%= current_user.username %>'s Todon'ts</h4>
+
+<ul>
+  <% @todonts.each do |todont| %>
+    <li><%= todont.body %></li>
+    <%= link_to "Show todon't", todont_path(todont) %>
+  <% end %>
+</ul>
