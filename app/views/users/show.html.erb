@@ -2,7 +2,7 @@
 
 <h4>Todon'ts</h4>
 <ul>
-  <% @user.todonts.each do |todont| %>
+  <% @user.public_todonts.each do |todont| %>
     <li><%= todont.body %></li>
   <% end %>
 </ul>
