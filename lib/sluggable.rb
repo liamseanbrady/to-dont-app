@@ -30,16 +30,12 @@ module Sluggable
     end
 
     def to_slug(str)
-      str = str.strip
-      str.gsub(/\s*^[a-zA-Z0-9]\s*/, '-')
-      str.gsub(/-+/, '-')
-      str = str.downcase
-      str.slice(0...12)
+      str.strip.gsub(/\s*[^a-zA-Z0-9]\s*/, '-').gsub(/-+/, '-').downcase.slice(0...14)
     end
 
     def add_suffix(slug, id)
       if slug.split('-').last.to_i != 0
-        slug = slug.split.('-').slice(0...-1).join('-')
+        slug = slug.split('-').slice(0...-1).join('-')
       end
 
       "#{slug}-#{id}"
