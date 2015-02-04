@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_secure_password validations: false
 
   has_many :todonts
+  has_many :public_todonts, -> { where visibility: 'public' }, class_name: 'Todont'
   has_many :progress_logs, through: :todonts, source: :progress_logs
 
   has_many :support_group_memberships, class_name: 'Membership'
