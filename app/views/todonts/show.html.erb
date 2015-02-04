@@ -1,3 +1,20 @@
 <h4><%= current_user.username %>'s Todon't</h4>
 
 <p><%= @todont.body %></p>
+
+<%= form_for [current_user, @todont, @progress_log] do |f| %>
+  <%= f.label :message %>
+  <%= f.text_area :message, rows: 3 %>
+  <br/>
+  <%= f.label :mood %>
+  <%= f.text_field :mood %>
+  <br/>
+  <%= f.submit 'Submit Progress Log' %>
+<% end %>
+
+<ul>
+  <% @progress_logs.each do |progress_log| %>
+    <li><%= progress_log.message %></li>
+    <li><%= progress_log.mood %></li>
+  <% end %>
+</ul>
