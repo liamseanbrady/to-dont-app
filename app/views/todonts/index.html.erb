@@ -1,8 +1,16 @@
 <h4><%= current_user.username %>'s Todon'ts</h4>
 
+<p><strong>Create a New Todon't</strong></p>
+<%= form_for [current_user, @todont] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+  <br/>
+  <%= f.submit "Create Todon't" %>
+<% end %>
+
 <ul>
   <% @todonts.each do |todont| %>
     <li><%= todont.body %></li>
-    <%= link_to "Show todon't", todont_path(todont) %>
+    <%= link_to "Show todon't", user_todont_path(current_user, todont) %>
   <% end %>
 </ul>
