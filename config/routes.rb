@@ -16,4 +16,6 @@ ToDontApp::Application.routes.draw do
   put '/users/:id', to: 'users#update'
   patch '/users/:id', to: 'users#update'
   delete '/users/:id', to: 'users#destroy'
+
+  get '/users/:id/todonts', to: 'todonts#index', as: 'user_todonts'
 end
