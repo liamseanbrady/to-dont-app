@@ -20,4 +20,6 @@ ToDontApp::Application.routes.draw do
   get '/users/:id/todonts', to: 'todonts#index', as: 'user_todonts'
   post '/users/:id/todonts', to: 'todonts#create'
   get '/users/:user/todonts/:id', to: 'todonts#show', as: 'user_todont'
+
+  post '/users/:user/todonts/:id/progress_log', to: 'todonts#progress_log', as: 'user_todont_progress_logs'
 end
