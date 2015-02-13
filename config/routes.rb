@@ -22,4 +22,6 @@ ToDontApp::Application.routes.draw do
   get '/users/:user/todonts/:id', to: 'todonts#show', as: 'user_todont'
 
   post '/users/:user/todonts/:id/progress_log', to: 'todonts#progress_log', as: 'user_todont_progress_logs'
+
+  get '/users/:user/support_groups', to: 'support_groups#index', as: 'user_support_groups'
 end
