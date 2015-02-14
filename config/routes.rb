@@ -6,7 +6,7 @@ ToDontApp::Application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#logout', as: 'logout'
 
-  # How to does Rails cancel out users/new so users/:id doesn't pick it up? Figure and include in README
+  # How to does Rails cancel out users/new so users/:id doesn't pick it up? Figure out and include in README
 
   get '/users', to: 'users#index', as: 'users'
   post '/users', to: 'users#create'
@@ -24,4 +24,6 @@ ToDontApp::Application.routes.draw do
   post '/users/:user/todonts/:id/progress_log', to: 'todonts#progress_log', as: 'user_todont_progress_logs'
 
   get '/users/:user/support_groups', to: 'support_groups#index', as: 'user_support_groups'
+  post '/users/:user/support_groups', to: 'support_groups#create'
+  get '/users/:user/support_groups/new', to: 'support_groups#new', as: 'new_user_support_group'
 end
